@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <div class="section">
+        <h2>BOUGHT</h2>
+        <table>
+            <thead>
+                <th>Date & Time</th>
+                <th>Symbol</th>
+                <th>Shares</th>
+                <th>Symbol Price</th>
+                <th>TOTAL Price</th>
+
+            </thead>
+            <tbody>
+                {%for row in bought%}
+                    <tr>
+                        <td>{{row["time"]}}</td>
+                        <td>{{row["symbol"]}}</td>
+                        <td>{{row["shares"]}}</td>
+                        <td>{{row["symbol_price"] | usd}}</td>
+                        <td>{{row["total_price"] | usd}}</td>
+                    </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    </div>
+    <div class="section">
+        <h2>SOLD</h2>
+        <table>
+            <thead>
+                <th>Date & Time</th>
+                <th>Symbol</th>
+                <th>Shares</th>
+                <th>Symbol Price</th>
+                <th>TOTAL Price</th>
+
+            </thead>
+            <tbody>
+                {%for row in sold%}
+                    <tr>
+                        <td>{{row["time"]}}</td>
+                        <td>{{row["symbol"]}}</td>
+                        <td>{{row["shares"]}}</td>
+                        <td>{{row["symbol_price"] | usd}}</td>
+                        <td>{{row["total_price"] | usd}}</td>
+                    </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

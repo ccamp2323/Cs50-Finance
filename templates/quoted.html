@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+    <div class="section">
+        <h1>Stock Quote</h1>
+        <table>
+            <thead>
+                <th>Symbol</th>
+                <th>Price</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ quote["symbol"] }}</td>
+                    <td>{{ quote["price"] | usd }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

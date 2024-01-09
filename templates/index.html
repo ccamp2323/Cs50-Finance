@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <h2>Portfolio</h2>
+    <div class="section">
+        <table>
+            <thead>
+                <th>Symbol</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>TOTAL</th>
+            </thead>
+            <tbody>
+                {%for row in stock_summary%}
+                    <tr>
+                        <td>{{row["symbol"]}}</td>
+                        <td>{{row["shares"]}}</td>
+                        <td>{{row["symbol_price"] | usd}}</td>
+                        <td>{{row["total_price"] | usd}}</td>
+                    </tr>
+                {%endfor%}
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Cash</td>
+                    <td>{{cash | usd}}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>TOTAL</td>
+                    <td>{{total_cash | usd}}</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
